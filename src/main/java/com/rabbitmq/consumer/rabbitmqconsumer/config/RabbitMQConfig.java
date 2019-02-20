@@ -1,4 +1,4 @@
-package com.rabbitmq.receiver.rabbitmqreceiver.config;
+package com.rabbitmq.consumer.rabbitmqconsumer.config;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
 import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;

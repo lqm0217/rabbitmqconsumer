@@ -1,25 +1,20 @@
-package com.rabbitmq.receiver.rabbitmqreceiver.service;
+package com.rabbitmq.consumer.rabbitmqconsumer.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rabbitmq.receiver.rabbitmqreceiver.domain.Project;
+import com.rabbitmq.consumer.rabbitmqconsumer.domain.Project;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class FanoutReceiverService {
+public class DirectReceiverService {
 
-    @Autowired
-    ObjectMapper objectMapper;
-
-    @RabbitListener(queues = "fanout")
+    @RabbitListener(queues = "direct1")
     @RabbitHandler
-    public void process(Project project) {
+    public void process1(Project project) {
 
-        log.info("Receive Project(fanout): ");
+        log.info("Receive Project(direct1): ");
         log.info("        Project Id: {}", project.getProjectId());
         log.info("        Project Name: {}", project.getProjectName());
         log.info("        Client Id: {}", project.getClientId());
